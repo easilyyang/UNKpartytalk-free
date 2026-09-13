@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PartyTalk Free 30 Days - 外贸英语跟读训练</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #14213d;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
+      --border: #e5e7eb;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 520px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 18px 14px 90px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1d4ed8, #38bdf8);
+      color: white;
+      padding: 22px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero p {
+      margin: 0;
+      opacity: .92;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      border: 1px solid rgba(229, 231, 235, 0.7);
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0 0 6px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eef2ff;
+      color: #3730a3;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .progress-wrap {
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #2563eb, #06b6d4);
+      width: 0%;
+      transition: width .35s ease;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 12px 0 16px;
+    }
+
+    .tab {
+      border: none;
+      background: #e5e7eb;
+      color: #374151;
+      padding: 10px 6px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .tab.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      font-size: 15px;
+      width: 100%;
+      transition: transform .05s ease, opacity .2s ease;
+    }
+
+    .btn:active { transform: scale(.99); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #eef2ff;
+      color: #1e40af;
+    }
+
+    .btn-green {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .btn-orange {
+      background: #ffedd5;
+      color: #9a3412;
+    }
+
+    .btn-red {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .btn-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .sentence {
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.45;
+      margin: 14px 0;
+    }
+
+    .cn {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 8px 0 0;
+    }
+
+    .word-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .word {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fafafa;
+    }
+
+    .word strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .word small {
+      color: var(--muted);
+      line-height: 1.45;
+      display: block;
+    }
+
+    .score {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .score-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 12px 8px;
+      text-align: center;
+    }
+
+    .score-box b {
+      display: block;
+      font-size: 24px;
+      color: var(--primary);
+    }
+
+    .score-box span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .feedback {
+      background: #f8fafc;
+      border: 1px dashed #cbd5e1;
+      padding: 12px;
+      border-radius: 14px;
+      color: #334155;
+      line-height: 1.6;
+      font-size: 14px;
+      margin-top: 12px;
+      white-space: pre-line;
+    }
+
+    .footer-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 520px;
+      width: 100%;
+      background: white;
+      border-top: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      padding: 8px 8px 10px;
+      z-index: 10;
+    }
+
+    .footer-nav button {
+      border: none;
+      background: transparent;
+      padding: 8px 4px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+
+    .footer-nav button.active {
+      color: var(--primary);
+      background: #eff6ff;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 12px;
+    }
+
+    .hidden { display: none; }
+
+    .notice {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #475569;
+      background: #f1f5f9;
+      border-radius: 14px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: 15px;
+      background: white;
+      margin-top: 8px;
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .day-dot {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 0;
+      font-weight: 800;
+      color: #64748b;
+      cursor: pointer;
+    }
+
+    .day-dot.active {
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+    }
+
+    .day-dot.done {
+      background: #dcfce7;
+      color: #166534;
+      border-color: #bbf7d0;
+    }
+
+    @media (max-width: 380px) {
+      .sentence { font-size: 19px; }
+      .btn-grid { grid-template-columns: 1fr; }
+      .tabs { grid-template-columns: repeat(2, 1fr); }
+      .week-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="hero">
+      <h1>PartyTalk Free 30 Days</h1>
+      <p>30天派对用品外贸英语跟读训练 · 免费单文件版</p>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" onclick="switchView('home')">首页</button>
+      <button class="tab" onclick="switchView('lesson')">课程</button>
+      <button class="tab" onclick="switchView('practice')">跟读</button>
+      <button class="tab" onclick="switchView('words')">词库</button>
+    </div>
+
+    <main id="homeView">
+      <section class="card">
+        <div class="row">
+          <div>
+            <div class="label">当前课程</div>
+            <h2 class="title" id="homeLessonTitle">Day 1</h2>
+            <p class="subtitle" id="homeLessonGoal"></p>
+          </div>
+          <span class="pill" id="streakPill">🔥 0 Days</span>
+        </div>
+        <div class="progress-wrap">
+          <div class="progress-bar" id="homeProgressBar"></div>
+        </div>
+        <p class="subtitle" id="homeProgressText" style="margin-top:10px;"></p>
+        <button class="btn btn-primary" style="margin-top:14px;" onclick="switchView('practice')">开始今日跟读</button>
+      </section>
+
+      <section class="card">
+        <h2 class="title">30天压缩训练结构</h2>
+        <p class="subtitle">
+          Day 1-10：公司、工厂、产品、定制基础表达<br>
+          Day 11-20：询盘、目录、MOQ、样品、报价、物流<br>
+          Day 21-30：付款、议价、催单、出货、售后、会议和结业话术
+        </p>
+      </section>
+
+      <section class="card">
+        <h2 class="title">选课</h2>
+        <p class="subtitle">点击任意 Day 直接训练。绿色代表已完成。</p>
+        <div class="week-grid" id="dayGrid"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="title">每日练习法</h2>
+        <p class="subtitle">
+          每天只练 5 句核心句 + 5 个词。每句：听3遍、跟读10遍、录音1遍、识别评分1遍。分数低于85，重复练。
+        </p>
+      </section>
+    </main>
+
+    <main id="lessonView" class="hidden">
+      <section class="card">
+        <div class="row">
+          <button class="btn btn-secondary" onclick="prevLesson()" style="width:90px;">上一天</button>
+          <span class="pill" id="lessonDayPill">Day 1 / 30</span>
+          <button class="btn btn-secondary" onclick="nextLesson()" style="width:90px;">下一天</button>
+        </div>
+        <h2 class="title" id="lessonTitle" style="margin-top:16px;"></h2>
+        <p class="subtitle" id="lessonGoal"></p>
+      </section>
+
+      <section class="card">
+        <h2 class="title">今日核心句</h2>
+        <div id="lessonSentences"></div>
+      </section>
+
+      <section class="card">
+        <h2 class="title">今日词汇</h2>
+        <div class="word-list" id="lessonWords"></div>
+      </section>
+    </main>
+
+    <main id="practiceView" class="hidden">
+      <section class="card">
+        <div class="row">
+          <span class="pill" id="practiceLessonPill">Day 1</span>
+          <span class="pill" id="sentenceIndexPill">1 / 5</span>
+        </div>
+        <div class="sentence" id="practiceSentence"></div>
+        <p class="cn" id="practiceCN"></p>
+
+        <select class="select" id="voiceSelect"></select>
+
+        <div class="btn-grid">
+          <button class="btn btn-primary" onclick="speakCurrent()">播放标准发音</button>
+          <button class="btn btn-secondary" onclick="startRecognition()">语音识别评分</button>
+          <button class="btn btn-green" onclick="startRecording()">开始录音</button>
+          <button class="btn btn-red" onclick="stopRecording()">停止录音</button>
+        </div>
+
+        <audio id="audioPlayback" controls class="hidden"></audio>
+
+        <div class="score">
+          <div class="score-box"><b id="accuracyScore">--</b><span>准确度</span></div>
+          <div class="score-box"><b id="completeScore">--</b><span>完整度</span></div>
+          <div class="score-box"><b id="fluencyScore">--</b><span>流利度</span></div>
+        </div>
+
+        <div class="feedback" id="feedbackBox">先点击“播放标准发音”，然后跟读。点击“语音识别评分”后朗读当前句子。</div>
+
+        <div class="btn-grid">
+          <button class="btn btn-orange" onclick="prevSentence()">上一句</button>
+          <button class="btn btn-primary" onclick="nextSentence()">下一句</button>
+        </div>
+        <button class="btn btn-green" style="margin-top:10px;" onclick="markLessonDone()">完成今天课程</button>
+      </section>
+    </main>
+
+    <main id="wordsView" class="hidden">
+      <section class="card">
+        <h2 class="title">30天派对用品外贸词库</h2>
+        <p class="subtitle">共 150 个高频词/短语。点击“播放”练习发音。</p>
+      </section>
+      <section class="card">
+        <div class="word-list" id="allWords"></div>
+      </section>
+    </main>
+
+    <footer class="footer-nav">
+      <button class="active" onclick="switchView('home')">首页</button>
+      <button onclick="switchView('lesson')">课程</button>
+      <button onclick="switchView('practice')">跟读</button>
+      <button onclick="switchView('words')">词库</button>
+    </footer>
+  </div>
+
+  <script>
+    const lessons = [
+      {
+            "day": 1,
+            "title": "Company Introduction",
+            "goal": "目标：30秒内说清楚公司是谁、做什么、服务谁。",
+            "sentences": [
+                  [
+                        "Hello, this is Jack from XXX.",
+                        "你好，我是来自 XXX 的 Jack。"
+                  ],
+                  [
+                        "We are a one-stop party supplies manufacturer in China.",
+                        "我们是中国的一站式派对用品制造商。"
+                  ],
+                  [
+                        "We have over 10 years of experience in this industry.",
+                        "我们在这个行业拥有超过10年的经验。"
+                  ],
+                  [
+                        "We provide OEM and ODM services for global customers.",
+                        "我们为全球客户提供 OEM 和 ODM 服务。"
+                  ],
+                  [
+                        "We look forward to working with you.",
+                        "期待与您合作。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "one-stop",
+                        "一站式",
+                        "We are a one-stop supplier."
+                  ],
+                  [
+                        "manufacturer",
+                        "制造商",
+                        "We are a professional manufacturer."
+                  ],
+                  [
+                        "experience",
+                        "经验",
+                        "We have over 10 years of experience."
+                  ],
+                  [
+                        "OEM",
+                        "代工生产",
+                        "We support OEM orders."
+                  ],
+                  [
+                        "ODM",
+                        "原创设计制造",
+                        "We provide ODM services."
+                  ]
+            ]
+      },
+      {
+            "day": 2,
+            "title": "Self Introduction",
+            "goal": "目标：介绍自己的岗位、职责和能为客户提供什么支持。",
+            "sentences": [
+                  [
+                        "I am responsible for sales and operations.",
+                        "我负责业务和运营。"
+                  ],
+                  [
+                        "I mainly work with overseas customers.",
+                        "我主要对接海外客户。"
+                  ],
+                  [
+                        "I can help you with product selection, quotation and order follow-up.",
+                        "我可以协助您选品、报价和订单跟进。"
+                  ],
+                  [
+                        "If you have any questions, please feel free to contact me.",
+                        "如果您有任何问题，请随时联系我。"
+                  ],
+                  [
+                        "I will support you throughout the whole order process.",
+                        "我会在整个订单流程中为您提供支持。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "sales",
+                        "业务/销售",
+                        "I am responsible for sales."
+                  ],
+                  [
+                        "operations",
+                        "运营",
+                        "I also manage operations."
+                  ],
+                  [
+                        "overseas customers",
+                        "海外客户",
+                        "We work with overseas customers."
+                  ],
+                  [
+                        "quotation",
+                        "报价",
+                        "I can send you a quotation."
+                  ],
+                  [
+                        "order follow-up",
+                        "订单跟进",
+                        "I will handle order follow-up."
+                  ]
+            ]
+      },
+      {
+            "day": 3,
+            "title": "Factory Introduction",
+            "goal": "目标：介绍工厂规模、仓库、产能和交付能力。",
+            "sentences": [
+                  [
+                        "Our factory covers about eight thousand square meters.",
+                        "我们的工厂面积约8000平方米。"
+                  ],
+                  [
+                        "We also have a five-thousand-square-meter warehouse.",
+                        "我们还有5000平方米仓库。"
+                  ],
+                  [
+                        "We have stable production capacity for bulk orders.",
+                        "我们具备稳定的大货生产能力。"
+                  ],
+                  [
+                        "We can handle product development, production, inspection and shipment.",
+                        "我们可以处理产品开发、生产、质检和出货。"
+                  ],
+                  [
+                        "This helps us provide stable quality and on-time delivery.",
+                        "这帮助我们提供稳定质量和准时交付。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "factory",
+                        "工厂",
+                        "Our factory is located in China."
+                  ],
+                  [
+                        "warehouse",
+                        "仓库",
+                        "We have a large warehouse."
+                  ],
+                  [
+                        "capacity",
+                        "产能",
+                        "Our production capacity is stable."
+                  ],
+                  [
+                        "bulk orders",
+                        "大货订单",
+                        "We can handle bulk orders."
+                  ],
+                  [
+                        "on-time delivery",
+                        "准时交付",
+                        "We focus on on-time delivery."
+                  ]
+            ]
+      },
+      {
+            "day": 4,
+            "title": "Main Product Categories",
+            "goal": "目标：用英语完整介绍主营产品分类。",
+            "sentences": [
+                  [
+                        "Our main products include disposable tableware, party decorations and balloons.",
+                        "我们的主营产品包括一次性餐具、派对装饰和气球。"
+                  ],
+                  [
+                        "We also supply party accessories and complete party kits.",
+                        "我们也供应派对配件和完整派对套装。"
+                  ],
+                  [
+                        "Our products cover birthdays, weddings, baby showers and holiday parties.",
+                        "我们的产品覆盖生日、婚礼、宝宝派对和节日派对。"
+                  ],
+                  [
+                        "Customers can choose from our catalog or request custom designs.",
+                        "客户可以从目录中选择，也可以要求定制设计。"
+                  ],
+                  [
+                        "We help customers develop suitable products for their markets.",
+                        "我们帮助客户开发适合他们市场的产品。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "disposable tableware",
+                        "一次性餐具",
+                        "Disposable tableware is one of our main categories."
+                  ],
+                  [
+                        "party decorations",
+                        "派对装饰",
+                        "We supply party decorations."
+                  ],
+                  [
+                        "balloons",
+                        "气球",
+                        "Balloons are popular for many events."
+                  ],
+                  [
+                        "party accessories",
+                        "派对配件",
+                        "We also offer party accessories."
+                  ],
+                  [
+                        "party kits",
+                        "派对套装",
+                        "We can make complete party kits."
+                  ]
+            ]
+      },
+      {
+            "day": 5,
+            "title": "Disposable Tableware",
+            "goal": "目标：介绍纸盘、纸杯、餐巾纸、桌布等餐具类产品。",
+            "sentences": [
+                  [
+                        "This series includes paper plates, paper cups, napkins and tablecloths.",
+                        "这个系列包括纸盘、纸杯、餐巾纸和桌布。"
+                  ],
+                  [
+                        "We can customize the size, color, pattern and packaging.",
+                        "我们可以定制尺寸、颜色、图案和包装。"
+                  ],
+                  [
+                        "These products are suitable for birthdays, weddings and holiday parties.",
+                        "这些产品适用于生日、婚礼和节日派对。"
+                  ],
+                  [
+                        "The material can be selected according to your market requirements.",
+                        "材料可以根据您的市场要求选择。"
+                  ],
+                  [
+                        "We can also help you develop matching sets.",
+                        "我们也可以帮助您开发配套套装。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "paper plate",
+                        "纸盘",
+                        "This paper plate is suitable for birthday parties."
+                  ],
+                  [
+                        "paper cup",
+                        "纸杯",
+                        "The paper cup can be customized."
+                  ],
+                  [
+                        "napkin",
+                        "餐巾纸",
+                        "We can print your design on the napkin."
+                  ],
+                  [
+                        "tablecloth",
+                        "桌布",
+                        "This tablecloth matches the party theme."
+                  ],
+                  [
+                        "matching set",
+                        "配套套装",
+                        "We can develop matching sets."
+                  ]
+            ]
+      },
+      {
+            "day": 6,
+            "title": "Party Decorations",
+            "goal": "目标：介绍背景布、拉旗、蛋糕插牌、挂饰等装饰产品。",
+            "sentences": [
+                  [
+                        "Our decoration products include banners, backdrops and hanging decorations.",
+                        "我们的装饰产品包括拉旗、背景布和挂饰。"
+                  ],
+                  [
+                        "We can develop designs based on your target market.",
+                        "我们可以根据您的目标市场开发设计。"
+                  ],
+                  [
+                        "These items are lightweight and easy to ship.",
+                        "这些产品重量轻，方便运输。"
+                  ],
+                  [
+                        "They are suitable for online sellers and retail stores.",
+                        "它们适合线上卖家和零售店。"
+                  ],
+                  [
+                        "We can offer different themes for seasonal promotions.",
+                        "我们可以为季节性促销提供不同主题。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "banner",
+                        "拉旗",
+                        "The banner is easy to hang."
+                  ],
+                  [
+                        "backdrop",
+                        "背景布",
+                        "The backdrop is good for photos."
+                  ],
+                  [
+                        "hanging decoration",
+                        "挂饰",
+                        "We offer hanging decorations."
+                  ],
+                  [
+                        "cake topper",
+                        "蛋糕插牌",
+                        "Cake toppers are popular for birthdays."
+                  ],
+                  [
+                        "seasonal promotion",
+                        "季节性促销",
+                        "This item is good for seasonal promotion."
+                  ]
+            ]
+      },
+      {
+            "day": 7,
+            "title": "Balloons",
+            "goal": "目标：介绍乳胶气球、铝箔气球、气球拱门和气球套装。",
+            "sentences": [
+                  [
+                        "We supply latex balloons, foil balloons and balloon kits.",
+                        "我们供应乳胶气球、铝箔气球和气球套装。"
+                  ],
+                  [
+                        "Balloon garlands and balloon arches are very popular for events.",
+                        "气球链和气球拱门在活动中非常受欢迎。"
+                  ],
+                  [
+                        "We can match colors based on your theme.",
+                        "我们可以根据您的主题搭配颜色。"
+                  ],
+                  [
+                        "Custom printing is available for some balloon products.",
+                        "部分气球产品可以定制印刷。"
+                  ],
+                  [
+                        "Please tell us your target quantity and theme, and we will recommend suitable options.",
+                        "请告诉我们目标数量和主题，我们会推荐合适方案。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "latex balloon",
+                        "乳胶气球",
+                        "Latex balloons are available in different colors."
+                  ],
+                  [
+                        "foil balloon",
+                        "铝箔气球",
+                        "Foil balloons are popular for birthdays."
+                  ],
+                  [
+                        "balloon garland",
+                        "气球链",
+                        "Balloon garlands are good for decoration."
+                  ],
+                  [
+                        "balloon arch",
+                        "气球拱门",
+                        "A balloon arch is suitable for events."
+                  ],
+                  [
+                        "custom printing",
+                        "定制印刷",
+                        "Custom printing is available."
+                  ]
+            ]
+      },
+      {
+            "day": 8,
+            "title": "Party Accessories",
+            "goal": "目标：介绍拍照道具、帽子、面具、眼镜等配件。",
+            "sentences": [
+                  [
+                        "Our party accessories include photo booth props, party hats, masks and glasses.",
+                        "我们的派对配件包括拍照道具、派对帽、面具和眼镜。"
+                  ],
+                  [
+                        "These products are fun, lightweight and easy to sell.",
+                        "这些产品有趣、轻便，也容易销售。"
+                  ],
+                  [
+                        "They can be used for birthdays, weddings and themed parties.",
+                        "它们可以用于生日、婚礼和主题派对。"
+                  ],
+                  [
+                        "We can customize the design and packaging for your brand.",
+                        "我们可以为您的品牌定制设计和包装。"
+                  ],
+                  [
+                        "Small accessories are also suitable for party kits.",
+                        "小配件也适合放入派对套装。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "photo booth props",
+                        "拍照道具",
+                        "Photo booth props are fun for parties."
+                  ],
+                  [
+                        "party hat",
+                        "派对帽",
+                        "Party hats are popular for birthdays."
+                  ],
+                  [
+                        "mask",
+                        "面具",
+                        "We offer masks for themed parties."
+                  ],
+                  [
+                        "party glasses",
+                        "派对眼镜",
+                        "Party glasses are easy to sell."
+                  ],
+                  [
+                        "themed party",
+                        "主题派对",
+                        "This item is suitable for themed parties."
+                  ]
+            ]
+      },
+      {
+            "day": 9,
+            "title": "Party Kits and Themes",
+            "goal": "目标：介绍派对套装和主题开发能力。",
+            "sentences": [
+                  [
+                        "We can provide complete party kits for different themes.",
+                        "我们可以为不同主题提供完整派对套装。"
+                  ],
+                  [
+                        "A party kit usually includes tableware, decorations and accessories.",
+                        "一个派对套装通常包括餐具、装饰和配件。"
+                  ],
+                  [
+                        "Popular themes include birthday, baby shower, wedding and graduation.",
+                        "热门主题包括生日、宝宝派对、婚礼和毕业派对。"
+                  ],
+                  [
+                        "We can help you combine products into a ready-to-sell set.",
+                        "我们可以帮您把产品组合成可直接销售的套装。"
+                  ],
+                  [
+                        "This can save your sourcing time and improve sales efficiency.",
+                        "这可以节省您的采购时间，并提升销售效率。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "complete party kit",
+                        "完整派对套装",
+                        "We provide complete party kits."
+                  ],
+                  [
+                        "birthday theme",
+                        "生日主题",
+                        "Birthday themes sell well."
+                  ],
+                  [
+                        "baby shower",
+                        "宝宝派对",
+                        "Baby shower products are popular."
+                  ],
+                  [
+                        "graduation",
+                        "毕业派对",
+                        "Graduation products are seasonal."
+                  ],
+                  [
+                        "ready-to-sell set",
+                        "可直接销售的套装",
+                        "We can make ready-to-sell sets."
+                  ]
+            ]
+      },
+      {
+            "day": 10,
+            "title": "Customization Service",
+            "goal": "目标：讲清楚定制Logo、定制包装和定制设计。",
+            "sentences": [
+                  [
+                        "We support custom logo, custom packaging and custom designs.",
+                        "我们支持定制Logo、定制包装和定制设计。"
+                  ],
+                  [
+                        "You can send us your artwork or design ideas.",
+                        "您可以把设计稿或设计想法发给我们。"
+                  ],
+                  [
+                        "Our design team can help you create new products.",
+                        "我们的设计团队可以帮助您开发新产品。"
+                  ],
+                  [
+                        "The MOQ depends on the product and customization requirements.",
+                        "MOQ取决于产品和定制要求。"
+                  ],
+                  [
+                        "We will confirm all details before production.",
+                        "生产前我们会确认所有细节。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "custom logo",
+                        "定制Logo",
+                        "We support custom logo."
+                  ],
+                  [
+                        "custom packaging",
+                        "定制包装",
+                        "Custom packaging is available."
+                  ],
+                  [
+                        "artwork",
+                        "设计稿",
+                        "Please send us your artwork."
+                  ],
+                  [
+                        "design team",
+                        "设计团队",
+                        "Our design team can support you."
+                  ],
+                  [
+                        "confirm details",
+                        "确认细节",
+                        "We will confirm all details before production."
+                  ]
+            ]
+      },
+      {
+            "day": 11,
+            "title": "Catalog Request",
+            "goal": "目标：客户要目录时，能自然回复并推进沟通。",
+            "sentences": [
+                  [
+                        "Sure, I will send you our latest catalog for your reference.",
+                        "当然，我会把我们的最新目录发给您参考。"
+                  ],
+                  [
+                        "May I know which product category you are interested in?",
+                        "请问您对哪个产品分类感兴趣？"
+                  ],
+                  [
+                        "We have many new designs for the upcoming season.",
+                        "我们为接下来的季节准备了很多新设计。"
+                  ],
+                  [
+                        "If you share your target market, I can recommend suitable items.",
+                        "如果您告诉我目标市场，我可以推荐合适产品。"
+                  ],
+                  [
+                        "Please let me know if you need prices for any specific items.",
+                        "如果您需要具体产品价格，请告诉我。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "latest catalog",
+                        "最新目录",
+                        "I will send you our latest catalog."
+                  ],
+                  [
+                        "for your reference",
+                        "供您参考",
+                        "Here is our catalog for your reference."
+                  ],
+                  [
+                        "interested in",
+                        "感兴趣",
+                        "Which category are you interested in?"
+                  ],
+                  [
+                        "target market",
+                        "目标市场",
+                        "Please share your target market."
+                  ],
+                  [
+                        "specific items",
+                        "具体产品",
+                        "Which specific items do you need?"
+                  ]
+            ]
+      },
+      {
+            "day": 12,
+            "title": "First Inquiry Reply",
+            "goal": "目标：收到客户询盘后，快速专业回复。",
+            "sentences": [
+                  [
+                        "Thank you for your inquiry.",
+                        "感谢您的询盘。"
+                  ],
+                  [
+                        "Could you please share more details about your requirements?",
+                        "请您提供更多需求细节好吗？"
+                  ],
+                  [
+                        "For example, quantity, size, design and packaging.",
+                        "比如数量、尺寸、设计和包装。"
+                  ],
+                  [
+                        "After receiving the details, we will prepare a quotation for you.",
+                        "收到细节后，我们会为您准备报价。"
+                  ],
+                  [
+                        "We will reply as soon as possible.",
+                        "我们会尽快回复您。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "inquiry",
+                        "询盘",
+                        "Thank you for your inquiry."
+                  ],
+                  [
+                        "requirements",
+                        "需求",
+                        "Please share your requirements."
+                  ],
+                  [
+                        "quantity",
+                        "数量",
+                        "What quantity do you need?"
+                  ],
+                  [
+                        "prepare a quotation",
+                        "准备报价",
+                        "We will prepare a quotation."
+                  ],
+                  [
+                        "as soon as possible",
+                        "尽快",
+                        "We will reply as soon as possible."
+                  ]
+            ]
+      },
+      {
+            "day": 13,
+            "title": "MOQ Discussion",
+            "goal": "目标：会解释MOQ，并为客户提供灵活方案。",
+            "sentences": [
+                  [
+                        "The MOQ depends on the product and packaging requirements.",
+                        "MOQ取决于产品和包装要求。"
+                  ],
+                  [
+                        "For standard products, the MOQ is usually lower.",
+                        "标准产品的MOQ通常更低。"
+                  ],
+                  [
+                        "For customized products, the MOQ will be higher.",
+                        "定制产品的MOQ会更高。"
+                  ],
+                  [
+                        "If you want to test the market, we can discuss a trial order.",
+                        "如果您想测试市场，我们可以讨论试单。"
+                  ],
+                  [
+                        "Please share your order plan, and we will try our best to support you.",
+                        "请告诉我们您的订单计划，我们会尽力支持您。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "MOQ",
+                        "最小起订量",
+                        "The MOQ depends on the product."
+                  ],
+                  [
+                        "standard products",
+                        "标准产品",
+                        "Standard products have lower MOQ."
+                  ],
+                  [
+                        "customized products",
+                        "定制产品",
+                        "Customized products need higher MOQ."
+                  ],
+                  [
+                        "trial order",
+                        "试单",
+                        "We can discuss a trial order."
+                  ],
+                  [
+                        "support you",
+                        "支持您",
+                        "We will try our best to support you."
+                  ]
+            ]
+      },
+      {
+            "day": 14,
+            "title": "Sample Request",
+            "goal": "目标：客户要样品时，说明样品、费用和时间。",
+            "sentences": [
+                  [
+                        "Yes, we can provide samples for your evaluation.",
+                        "可以，我们可以提供样品供您评估。"
+                  ],
+                  [
+                        "Sample time is usually five to seven days.",
+                        "样品时间通常是5到7天。"
+                  ],
+                  [
+                        "The sample fee depends on the product and design.",
+                        "样品费取决于产品和设计。"
+                  ],
+                  [
+                        "The shipping cost will be charged based on the actual cost.",
+                        "运费会根据实际费用收取。"
+                  ],
+                  [
+                        "After you confirm the sample, we can start bulk production.",
+                        "您确认样品后，我们可以开始大货生产。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "sample",
+                        "样品",
+                        "We can provide samples."
+                  ],
+                  [
+                        "evaluation",
+                        "评估",
+                        "Samples are for your evaluation."
+                  ],
+                  [
+                        "sample fee",
+                        "样品费",
+                        "The sample fee depends on the design."
+                  ],
+                  [
+                        "shipping cost",
+                        "运费",
+                        "The shipping cost is based on actual cost."
+                  ],
+                  [
+                        "bulk production",
+                        "大货生产",
+                        "We can start bulk production."
+                  ]
+            ]
+      },
+      {
+            "day": 15,
+            "title": "Quotation",
+            "goal": "目标：清晰报价格、MOQ、交期和有效期。",
+            "sentences": [
+                  [
+                        "Based on your requirements, here is our quotation.",
+                        "根据您的需求，这是我们的报价。"
+                  ],
+                  [
+                        "The unit price is based on your quantity and packaging.",
+                        "单价基于您的数量和包装。"
+                  ],
+                  [
+                        "The MOQ is one thousand sets for this design.",
+                        "这个设计的MOQ是1000套。"
+                  ],
+                  [
+                        "The lead time is about twenty-five to thirty days after deposit.",
+                        "交期是收到定金后约25到30天。"
+                  ],
+                  [
+                        "This quotation is valid for fifteen days.",
+                        "此报价有效期为15天。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "unit price",
+                        "单价",
+                        "The unit price depends on quantity."
+                  ],
+                  [
+                        "lead time",
+                        "交期",
+                        "The lead time is about 25 to 30 days."
+                  ],
+                  [
+                        "after deposit",
+                        "收到定金后",
+                        "Production starts after deposit."
+                  ],
+                  [
+                        "valid",
+                        "有效",
+                        "This quotation is valid for 15 days."
+                  ],
+                  [
+                        "set",
+                        "套",
+                        "The MOQ is one thousand sets."
+                  ]
+            ]
+      },
+      {
+            "day": 16,
+            "title": "Packaging",
+            "goal": "目标：介绍包装方式、装箱数量和定制包装。",
+            "sentences": [
+                  [
+                        "The standard packaging is opp bag or color box.",
+                        "标准包装是OPP袋或彩盒。"
+                  ],
+                  [
+                        "We can also customize the packaging for your brand.",
+                        "我们也可以为您的品牌定制包装。"
+                  ],
+                  [
+                        "Please confirm the packing method before quotation.",
+                        "报价前请确认包装方式。"
+                  ],
+                  [
+                        "The carton size and weight depend on the final packing details.",
+                        "箱规和重量取决于最终包装细节。"
+                  ],
+                  [
+                        "We will provide packing information before shipment.",
+                        "出货前我们会提供包装信息。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "packaging",
+                        "包装",
+                        "We can customize the packaging."
+                  ],
+                  [
+                        "opp bag",
+                        "OPP袋",
+                        "The standard packaging is opp bag."
+                  ],
+                  [
+                        "color box",
+                        "彩盒",
+                        "Color box packaging is available."
+                  ],
+                  [
+                        "carton size",
+                        "箱规",
+                        "Please confirm the carton size."
+                  ],
+                  [
+                        "packing information",
+                        "包装信息",
+                        "We will provide packing information."
+                  ]
+            ]
+      },
+      {
+            "day": 17,
+            "title": "Material and Quality",
+            "goal": "目标：解释材料、质检和质量稳定性。",
+            "sentences": [
+                  [
+                        "We use reliable materials that meet market requirements.",
+                        "我们使用符合市场要求的可靠材料。"
+                  ],
+                  [
+                        "Before production, we confirm the material and printing details.",
+                        "生产前我们确认材料和印刷细节。"
+                  ],
+                  [
+                        "During production, our team checks the quality regularly.",
+                        "生产过程中，我们的团队会定期检查质量。"
+                  ],
+                  [
+                        "Before shipment, we carry out final inspection.",
+                        "出货前，我们会进行最终质检。"
+                  ],
+                  [
+                        "Quality stability is very important for long-term cooperation.",
+                        "质量稳定性对长期合作非常重要。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "material",
+                        "材料",
+                        "The material can be customized."
+                  ],
+                  [
+                        "printing details",
+                        "印刷细节",
+                        "Please confirm the printing details."
+                  ],
+                  [
+                        "regularly",
+                        "定期",
+                        "We check quality regularly."
+                  ],
+                  [
+                        "final inspection",
+                        "最终质检",
+                        "We carry out final inspection."
+                  ],
+                  [
+                        "quality stability",
+                        "质量稳定性",
+                        "Quality stability is important."
+                  ]
+            ]
+      },
+      {
+            "day": 18,
+            "title": "Certification and Compliance",
+            "goal": "目标：介绍认证、检测和市场合规。",
+            "sentences": [
+                  [
+                        "Some products can meet food contact safety requirements.",
+                        "部分产品可以满足食品接触安全要求。"
+                  ],
+                  [
+                        "We can provide test reports if required.",
+                        "如有需要，我们可以提供测试报告。"
+                  ],
+                  [
+                        "For paper products, FSC material can be discussed.",
+                        "纸制品可以讨论FSC材料。"
+                  ],
+                  [
+                        "Please tell us your market and compliance requirements.",
+                        "请告诉我们您的市场和合规要求。"
+                  ],
+                  [
+                        "We will check whether the product can meet your standard.",
+                        "我们会确认产品是否能满足您的标准。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "certification",
+                        "认证",
+                        "Do you need certification?"
+                  ],
+                  [
+                        "compliance",
+                        "合规",
+                        "Please share your compliance requirements."
+                  ],
+                  [
+                        "test report",
+                        "测试报告",
+                        "We can provide test reports if required."
+                  ],
+                  [
+                        "food contact",
+                        "食品接触",
+                        "This material is for food contact."
+                  ],
+                  [
+                        "standard",
+                        "标准",
+                        "We will check your standard."
+                  ]
+            ]
+      },
+      {
+            "day": 19,
+            "title": "Lead Time",
+            "goal": "目标：说明打样时间、生产时间和影响因素。",
+            "sentences": [
+                  [
+                        "Sample time is usually five to seven days.",
+                        "样品时间通常是5到7天。"
+                  ],
+                  [
+                        "Production time is about twenty-five to thirty days after sample approval.",
+                        "样品确认后生产时间约25到30天。"
+                  ],
+                  [
+                        "The exact lead time depends on quantity and production schedule.",
+                        "准确交期取决于数量和生产排期。"
+                  ],
+                  [
+                        "We will update you if there is any change.",
+                        "如果有任何变化，我们会及时更新您。"
+                  ],
+                  [
+                        "For urgent orders, we can check the fastest available schedule.",
+                        "对于紧急订单，我们可以确认最快可用排期。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "sample approval",
+                        "样品确认",
+                        "Production starts after sample approval."
+                  ],
+                  [
+                        "production schedule",
+                        "生产排期",
+                        "Lead time depends on production schedule."
+                  ],
+                  [
+                        "exact lead time",
+                        "准确交期",
+                        "We will confirm the exact lead time."
+                  ],
+                  [
+                        "urgent order",
+                        "紧急订单",
+                        "We can check urgent orders."
+                  ],
+                  [
+                        "available schedule",
+                        "可用排期",
+                        "We will check the available schedule."
+                  ]
+            ]
+      },
+      {
+            "day": 20,
+            "title": "Shipping and Logistics",
+            "goal": "目标：介绍出货方式、运费、体积重和物流跟进。",
+            "sentences": [
+                  [
+                        "We can ship the goods by sea, by air or by express.",
+                        "我们可以通过海运、空运或快递出货。"
+                  ],
+                  [
+                        "The shipping cost depends on volume, weight and destination.",
+                        "运费取决于体积、重量和目的地。"
+                  ],
+                  [
+                        "Please share your delivery address so we can check the freight cost.",
+                        "请提供收货地址，我们可以确认运费。"
+                  ],
+                  [
+                        "For large orders, sea shipping is usually more cost-effective.",
+                        "大订单通常海运更划算。"
+                  ],
+                  [
+                        "We will provide the tracking information after shipment.",
+                        "出货后我们会提供物流跟踪信息。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "by sea",
+                        "海运",
+                        "We can ship by sea."
+                  ],
+                  [
+                        "by air",
+                        "空运",
+                        "Air shipping is faster."
+                  ],
+                  [
+                        "by express",
+                        "快递",
+                        "Samples can be shipped by express."
+                  ],
+                  [
+                        "freight cost",
+                        "运费",
+                        "We will check the freight cost."
+                  ],
+                  [
+                        "tracking information",
+                        "物流跟踪信息",
+                        "We will provide tracking information."
+                  ]
+            ]
+      },
+      {
+            "day": 21,
+            "title": "Payment Terms",
+            "goal": "目标：说明付款方式、定金、尾款和付款节点。",
+            "sentences": [
+                  [
+                        "Our standard payment term is thirty percent deposit and seventy percent balance before shipment.",
+                        "我们的标准付款方式是30%定金，70%尾款出货前付清。"
+                  ],
+                  [
+                        "Production will start after we receive the deposit.",
+                        "收到定金后我们会开始生产。"
+                  ],
+                  [
+                        "The balance should be paid before shipment.",
+                        "尾款需要在出货前支付。"
+                  ],
+                  [
+                        "For small orders, full payment before production may be required.",
+                        "小订单可能需要生产前全款支付。"
+                  ],
+                  [
+                        "We can discuss payment terms based on the order value.",
+                        "我们可以根据订单金额讨论付款方式。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "payment term",
+                        "付款方式",
+                        "Our payment term is 30 percent deposit."
+                  ],
+                  [
+                        "deposit",
+                        "定金",
+                        "Production starts after deposit."
+                  ],
+                  [
+                        "balance",
+                        "尾款",
+                        "The balance is paid before shipment."
+                  ],
+                  [
+                        "full payment",
+                        "全款",
+                        "Full payment may be required."
+                  ],
+                  [
+                        "order value",
+                        "订单金额",
+                        "Payment terms depend on order value."
+                  ]
+            ]
+      },
+      {
+            "day": 22,
+            "title": "Price Negotiation",
+            "goal": "目标：客户砍价时，专业回应并引导数量、包装和方案。",
+            "sentences": [
+                  [
+                        "I understand price is important for your market.",
+                        "我理解价格对您的市场很重要。"
+                  ],
+                  [
+                        "Our price is based on quality materials and stable production.",
+                        "我们的价格基于优质材料和稳定生产。"
+                  ],
+                  [
+                        "If you can increase the quantity, we can check a better price.",
+                        "如果您能增加数量，我们可以确认更好的价格。"
+                  ],
+                  [
+                        "We can also adjust the packaging to meet your target budget.",
+                        "我们也可以调整包装来满足您的目标预算。"
+                  ],
+                  [
+                        "Let us find a solution that balances price and quality.",
+                        "让我们找到一个平衡价格和质量的方案。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "target budget",
+                        "目标预算",
+                        "We can meet your target budget."
+                  ],
+                  [
+                        "better price",
+                        "更好的价格",
+                        "We can check a better price."
+                  ],
+                  [
+                        "increase the quantity",
+                        "增加数量",
+                        "If you increase the quantity, price can be better."
+                  ],
+                  [
+                        "adjust packaging",
+                        "调整包装",
+                        "We can adjust packaging."
+                  ],
+                  [
+                        "balance",
+                        "平衡",
+                        "We balance price and quality."
+                  ]
+            ]
+      },
+      {
+            "day": 23,
+            "title": "Customer Says Too Expensive",
+            "goal": "目标：客户嫌贵时，不直接降价，而是强调价值和替代方案。",
+            "sentences": [
+                  [
+                        "Thank you for your feedback.",
+                        "感谢您的反馈。"
+                  ],
+                  [
+                        "I understand your concern about the price.",
+                        "我理解您对价格的顾虑。"
+                  ],
+                  [
+                        "Compared with low-cost options, our products offer more stable quality.",
+                        "相比低价方案，我们的产品质量更稳定。"
+                  ],
+                  [
+                        "We can review the design, material and packaging to reduce cost.",
+                        "我们可以重新评估设计、材料和包装来降低成本。"
+                  ],
+                  [
+                        "Could you share your target price so we can check possible solutions?",
+                        "您可以提供目标价格吗？我们可以确认可行方案。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "concern",
+                        "顾虑",
+                        "I understand your concern."
+                  ],
+                  [
+                        "low-cost options",
+                        "低价方案",
+                        "Compared with low-cost options, we offer stable quality."
+                  ],
+                  [
+                        "reduce cost",
+                        "降低成本",
+                        "We can reduce cost by changing packaging."
+                  ],
+                  [
+                        "target price",
+                        "目标价",
+                        "Please share your target price."
+                  ],
+                  [
+                        "possible solutions",
+                        "可行方案",
+                        "We will check possible solutions."
+                  ]
+            ]
+      },
+      {
+            "day": 24,
+            "title": "Order Confirmation",
+            "goal": "目标：确认订单细节，避免生产错误。",
+            "sentences": [
+                  [
+                        "Before we start production, let's confirm all order details.",
+                        "生产前，我们先确认所有订单细节。"
+                  ],
+                  [
+                        "Please confirm the product, quantity, design, packaging and shipping address.",
+                        "请确认产品、数量、设计、包装和收货地址。"
+                  ],
+                  [
+                        "After everything is confirmed, we will issue the proforma invoice.",
+                        "所有内容确认后，我们会出形式发票。"
+                  ],
+                  [
+                        "Production will start after payment is received.",
+                        "收到付款后会开始生产。"
+                  ],
+                  [
+                        "We will keep you updated during production.",
+                        "生产过程中我们会持续向您更新。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "order details",
+                        "订单细节",
+                        "Let's confirm all order details."
+                  ],
+                  [
+                        "shipping address",
+                        "收货地址",
+                        "Please confirm the shipping address."
+                  ],
+                  [
+                        "proforma invoice",
+                        "形式发票",
+                        "We will issue the proforma invoice."
+                  ],
+                  [
+                        "payment received",
+                        "收到付款",
+                        "Production starts after payment is received."
+                  ],
+                  [
+                        "keep you updated",
+                        "持续更新您",
+                        "We will keep you updated."
+                  ]
+            ]
+      },
+      {
+            "day": 25,
+            "title": "Production Update",
+            "goal": "目标：向客户汇报生产进度。",
+            "sentences": [
+                  [
+                        "Your order is now in production.",
+                        "您的订单正在生产中。"
+                  ],
+                  [
+                        "Everything is going according to schedule.",
+                        "一切都按照计划进行。"
+                  ],
+                  [
+                        "We will send you production photos for confirmation.",
+                        "我们会发生产照片给您确认。"
+                  ],
+                  [
+                        "If there is any issue, we will inform you immediately.",
+                        "如果有任何问题，我们会立即通知您。"
+                  ],
+                  [
+                        "The goods are expected to be ready next week.",
+                        "货物预计下周完成。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "in production",
+                        "生产中",
+                        "Your order is in production."
+                  ],
+                  [
+                        "according to schedule",
+                        "按计划",
+                        "Everything is going according to schedule."
+                  ],
+                  [
+                        "production photos",
+                        "生产照片",
+                        "We will send production photos."
+                  ],
+                  [
+                        "inform you immediately",
+                        "立即通知您",
+                        "We will inform you immediately."
+                  ],
+                  [
+                        "expected to be ready",
+                        "预计完成",
+                        "The goods are expected to be ready."
+                  ]
+            ]
+      },
+      {
+            "day": 26,
+            "title": "Inspection and Shipment",
+            "goal": "目标：出货前说明质检、包装和物流信息。",
+            "sentences": [
+                  [
+                        "The goods have finished production.",
+                        "货物已经完成生产。"
+                  ],
+                  [
+                        "We are arranging final inspection and packing.",
+                        "我们正在安排最终质检和包装。"
+                  ],
+                  [
+                        "After inspection, we will send you photos and packing details.",
+                        "质检后，我们会发送照片和包装细节。"
+                  ],
+                  [
+                        "Once the balance is received, we can arrange shipment.",
+                        "收到尾款后，我们可以安排出货。"
+                  ],
+                  [
+                        "We will provide shipping documents after the goods are shipped.",
+                        "货物出运后，我们会提供出货文件。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "finished production",
+                        "完成生产",
+                        "The goods have finished production."
+                  ],
+                  [
+                        "final inspection",
+                        "最终质检",
+                        "We are arranging final inspection."
+                  ],
+                  [
+                        "packing details",
+                        "包装细节",
+                        "We will send packing details."
+                  ],
+                  [
+                        "arrange shipment",
+                        "安排出货",
+                        "We can arrange shipment."
+                  ],
+                  [
+                        "shipping documents",
+                        "出货文件",
+                        "We will provide shipping documents."
+                  ]
+            ]
+      },
+      {
+            "day": 27,
+            "title": "After-sales Service",
+            "goal": "目标：处理客户投诉时，先安抚、再确认、再给方案。",
+            "sentences": [
+                  [
+                        "I am sorry to hear that.",
+                        "听到这个情况我很抱歉。"
+                  ],
+                  [
+                        "Could you please send us photos or videos of the issue?",
+                        "请您发问题的照片或视频给我们好吗？"
+                  ],
+                  [
+                        "We will check with our production and quality team.",
+                        "我们会和生产及质检团队确认。"
+                  ],
+                  [
+                        "After we understand the situation, we will offer a solution.",
+                        "了解情况后，我们会提供解决方案。"
+                  ],
+                  [
+                        "We value long-term cooperation and will handle this seriously.",
+                        "我们重视长期合作，会认真处理这个问题。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "issue",
+                        "问题",
+                        "Please send photos of the issue."
+                  ],
+                  [
+                        "quality team",
+                        "质检团队",
+                        "We will check with our quality team."
+                  ],
+                  [
+                        "situation",
+                        "情况",
+                        "We need to understand the situation."
+                  ],
+                  [
+                        "solution",
+                        "解决方案",
+                        "We will offer a solution."
+                  ],
+                  [
+                        "handle seriously",
+                        "认真处理",
+                        "We will handle this seriously."
+                  ]
+            ]
+      },
+      {
+            "day": 28,
+            "title": "WhatsApp Follow-up",
+            "goal": "目标：用简短自然的方式催客户回复、推进下一步。",
+            "sentences": [
+                  [
+                        "Hi John, just checking if you have reviewed our quotation.",
+                        "Hi John，想确认您是否看过我们的报价。"
+                  ],
+                  [
+                        "Do you have any comments on the price or packaging?",
+                        "您对价格或包装有什么意见吗？"
+                  ],
+                  [
+                        "If needed, we can adjust the proposal for you.",
+                        "如有需要，我们可以为您调整方案。"
+                  ],
+                  [
+                        "Would you like to move forward with samples first?",
+                        "您想先推进样品吗？"
+                  ],
+                  [
+                        "Please let me know your thoughts when you are available.",
+                        "您方便时请告诉我您的想法。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "just checking",
+                        "想确认一下",
+                        "Just checking if you reviewed it."
+                  ],
+                  [
+                        "reviewed",
+                        "看过/审阅过",
+                        "Have you reviewed our quotation?"
+                  ],
+                  [
+                        "comments",
+                        "意见",
+                        "Do you have any comments?"
+                  ],
+                  [
+                        "proposal",
+                        "方案",
+                        "We can adjust the proposal."
+                  ],
+                  [
+                        "move forward",
+                        "推进",
+                        "Would you like to move forward?"
+                  ]
+            ]
+      },
+      {
+            "day": 29,
+            "title": "Video Meeting",
+            "goal": "目标：完成一次视频会议开场、介绍和收尾。",
+            "sentences": [
+                  [
+                        "Hello, nice to meet you online.",
+                        "您好，很高兴线上见到您。"
+                  ],
+                  [
+                        "Today I would like to introduce our company, products and services.",
+                        "今天我想介绍我们的公司、产品和服务。"
+                  ],
+                  [
+                        "Please feel free to ask questions at any time.",
+                        "请随时提问。"
+                  ],
+                  [
+                        "Let me show you some of our popular items.",
+                        "我来给您展示一些我们的热销产品。"
+                  ],
+                  [
+                        "Thank you for your time today. I will follow up with the details after the meeting.",
+                        "感谢您今天的时间。会后我会跟进相关细节。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "nice to meet you online",
+                        "线上见到您很高兴",
+                        "Nice to meet you online."
+                  ],
+                  [
+                        "introduce",
+                        "介绍",
+                        "I would like to introduce our company."
+                  ],
+                  [
+                        "feel free to ask",
+                        "随时提问",
+                        "Please feel free to ask."
+                  ],
+                  [
+                        "popular items",
+                        "热销产品",
+                        "Let me show you our popular items."
+                  ],
+                  [
+                        "follow up",
+                        "跟进",
+                        "I will follow up after the meeting."
+                  ]
+            ]
+      },
+      {
+            "day": 30,
+            "title": "Full Sales Pitch",
+            "goal": "目标：完成一段完整的外贸客户沟通话术，作为30天结业测试。",
+            "sentences": [
+                  [
+                        "Hello, this is Jack from XXX, a one-stop party supplies manufacturer in China.",
+                        "您好，我是来自 XXX 的 Jack，我们是中国的一站式派对用品制造商。"
+                  ],
+                  [
+                        "We specialize in disposable tableware, party decorations, balloons, accessories and complete party kits.",
+                        "我们专注于一次性餐具、派对装饰、气球、配件和完整派对套装。"
+                  ],
+                  [
+                        "We support OEM and ODM services, including custom logo, custom packaging and custom designs.",
+                        "我们支持OEM和ODM服务，包括定制Logo、定制包装和定制设计。"
+                  ],
+                  [
+                        "With stable production, strict quality inspection and fast response, we help customers develop products for their markets.",
+                        "凭借稳定生产、严格质检和快速响应，我们帮助客户开发适合市场的产品。"
+                  ],
+                  [
+                        "If you share your product requirements, I can recommend suitable options and prepare a quotation for you.",
+                        "如果您提供产品需求，我可以推荐合适方案并为您准备报价。"
+                  ]
+            ],
+            "words": [
+                  [
+                        "sales pitch",
+                        "销售介绍话术",
+                        "This is my full sales pitch."
+                  ],
+                  [
+                        "specialize in",
+                        "专注于",
+                        "We specialize in party supplies."
+                  ],
+                  [
+                        "fast response",
+                        "快速响应",
+                        "Fast response is important for customers."
+                  ],
+                  [
+                        "recommend suitable options",
+                        "推荐合适方案",
+                        "I can recommend suitable options."
+                  ],
+                  [
+                        "prepare a quotation",
+                        "准备报价",
+                        "I can prepare a quotation for you."
+                  ]
+            ]
+      }
+];
+
+    let currentLessonIndex = Number(localStorage.getItem("pt_currentLessonIndex") || 0);
+    let currentSentenceIndex = 0;
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let recordingStart = 0;
+    let lastRecordingDuration = null;
+    let voices = [];
+
+    function normalizeText(text) {
+      return (text || "")
+        .toLowerCase()
+        .replace(/[.,!?;:()"]/g, "")
+        .replace(/-/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function words(text) {
+      return normalizeText(text).split(" ").filter(Boolean);
+    }
+
+    function levenshtein(a, b) {
+      const m = a.length, n = b.length;
+      const dp = Array.from({length: m + 1}, () => Array(n + 1).fill(0));
+      for (let i = 0; i <= m; i++) dp[i][0] = i;
+      for (let j = 0; j <= n; j++) dp[0][j] = j;
+      for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+          dp[i][j] = Math.min(
+            dp[i-1][j] + 1,
+            dp[i][j-1] + 1,
+            dp[i-1][j-1] + (a[i-1] === b[j-1] ? 0 : 1)
+          );
+        }
+      }
+      return dp[m][n];
+    }
+
+    function similarityScore(target, actual) {
+      const t = words(target);
+      const a = words(actual);
+      if (!t.length || !a.length) return 0;
+      const dist = levenshtein(t, a);
+      const maxLen = Math.max(t.length, a.length);
+      return Math.max(0, Math.round((1 - dist / maxLen) * 100));
+    }
+
+    function completenessScore(target, actual) {
+      const t = words(target);
+      const a = new Set(words(actual));
+      if (!t.length) return 0;
+      const matched = t.filter(w => a.has(w)).length;
+      return Math.round(matched / t.length * 100);
+    }
+
+    function fluencyScore(target) {
+      const wordCount = words(target).length;
+      const idealSeconds = Math.max(2.8, wordCount * 0.55);
+      if (!lastRecordingDuration) return 80;
+      const ratio = lastRecordingDuration / idealSeconds;
+      let score = 100 - Math.abs(ratio - 1) * 42;
+      return Math.max(55, Math.min(100, Math.round(score)));
+    }
+
+    function missingWords(target, actual) {
+      const a = new Set(words(actual));
+      return words(target).filter(w => !a.has(w));
+    }
+
+    function currentLesson() {
+      return lessons[currentLessonIndex];
+    }
+
+    function currentSentencePair() {
+      return currentLesson().sentences[currentSentenceIndex];
+    }
+
+    function switchView(view) {
+      ["home", "lesson", "practice", "words"].forEach(v => {
+        document.getElementById(v + "View").classList.toggle("hidden", v !== view);
+      });
+      document.querySelectorAll(".tab").forEach((b, i) => b.classList.toggle("active", ["home", "lesson", "practice", "words"][i] === view));
+      document.querySelectorAll(".footer-nav button").forEach((b, i) => b.classList.toggle("active", ["home", "lesson", "practice", "words"][i] === view));
+      renderAll();
+    }
+
+    function renderAll() {
+      renderHome();
+      renderLesson();
+      renderPractice();
+      renderWords();
+      loadVoices();
+    }
+
+    function renderHome() {
+      const lesson = currentLesson();
+      const done = JSON.parse(localStorage.getItem("pt_doneLessons") || "[]");
+      document.getElementById("homeLessonTitle").innerText = `Day ${lesson.day}: ${lesson.title}`;
+      document.getElementById("homeLessonGoal").innerText = lesson.goal;
+      document.getElementById("homeProgressText").innerText = `已完成 ${done.length} / ${lessons.length} 天课程`;
+      document.getElementById("homeProgressBar").style.width = `${done.length / lessons.length * 100}%`;
+      document.getElementById("streakPill").innerText = `🔥 ${done.length} Days`;
+      renderDayGrid();
+    }
+
+    function renderDayGrid() {
+      const done = new Set(JSON.parse(localStorage.getItem("pt_doneLessons") || "[]"));
+      document.getElementById("dayGrid").innerHTML = lessons.map((l, idx) => `
+        <button class="day-dot ${idx === currentLessonIndex ? 'active' : ''} ${done.has(l.day) ? 'done' : ''}" onclick="goLesson(${idx})">${l.day}</button>
+      `).join("");
+    }
+
+    function goLesson(index) {
+      currentLessonIndex = index;
+      currentSentenceIndex = 0;
+      resetScores();
+      localStorage.setItem("pt_currentLessonIndex", currentLessonIndex);
+      switchView("practice");
+    }
+
+    function renderLesson() {
+      const lesson = currentLesson();
+      document.getElementById("lessonDayPill").innerText = `Day ${lesson.day} / ${lessons.length}`;
+      document.getElementById("lessonTitle").innerText = lesson.title;
+      document.getElementById("lessonGoal").innerText = lesson.goal;
+
+      document.getElementById("lessonSentences").innerHTML = lesson.sentences.map((s, idx) => `
+        <div class="word">
+          <strong>${idx + 1}. ${s[0]}</strong>
+          <small>${s[1]}</small>
+        </div>
+      `).join("");
+
+      document.getElementById("lessonWords").innerHTML = lesson.words.map(w => `
+        <div class="word">
+          <strong>${w[0]} <button onclick="speakText('${escapeJS(w[0])}')" style="float:right;border:none;background:#eef2ff;color:#1e40af;border-radius:8px;padding:5px 8px;font-weight:700;">播放</button></strong>
+          <small>${w[1]}<br>${w[2]}</small>
+        </div>
+      `).join("");
+    }
+
+    function renderPractice() {
+      const lesson = currentLesson();
+      const pair = currentSentencePair();
+      document.getElementById("practiceLessonPill").innerText = `Day ${lesson.day}`;
+      document.getElementById("sentenceIndexPill").innerText = `${currentSentenceIndex + 1} / ${lesson.sentences.length}`;
+      document.getElementById("practiceSentence").innerText = pair[0];
+      document.getElementById("practiceCN").innerText = pair[1];
+    }
+
+    function renderWords() {
+      const all = lessons.flatMap(l => l.words.map(w => ({...{day:l.day}, w})));
+      document.getElementById("allWords").innerHTML = all.map(item => `
+        <div class="word">
+          <strong>${item.w[0]} <button onclick="speakText('${escapeJS(item.w[0])}')" style="float:right;border:none;background:#eef2ff;color:#1e40af;border-radius:8px;padding:5px 8px;font-weight:700;">播放</button></strong>
+          <small>Day ${item.day} · ${item.w[1]}<br>${item.w[2]}</small>
+        </div>
+      `).join("");
+    }
+
+    function escapeJS(str) {
+      return str.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+    }
+
+    function prevLesson() {
+      currentLessonIndex = Math.max(0, currentLessonIndex - 1);
+      currentSentenceIndex = 0;
+      resetScores();
+      localStorage.setItem("pt_currentLessonIndex", currentLessonIndex);
+      renderAll();
+    }
+
+    function nextLesson() {
+      currentLessonIndex = Math.min(lessons.length - 1, currentLessonIndex + 1);
+      currentSentenceIndex = 0;
+      resetScores();
+      localStorage.setItem("pt_currentLessonIndex", currentLessonIndex);
+      renderAll();
+    }
+
+    function prevSentence() {
+      currentSentenceIndex = Math.max(0, currentSentenceIndex - 1);
+      resetScores();
+      renderPractice();
+    }
+
+    function nextSentence() {
+      const lesson = currentLesson();
+      currentSentenceIndex = Math.min(lesson.sentences.length - 1, currentSentenceIndex + 1);
+      resetScores();
+      renderPractice();
+    }
+
+    function resetScores() {
+      document.getElementById("accuracyScore").innerText = "--";
+      document.getElementById("completeScore").innerText = "--";
+      document.getElementById("fluencyScore").innerText = "--";
+      document.getElementById("feedbackBox").innerText = "先点击“播放标准发音”，然后跟读。点击“语音识别评分”后朗读当前句子。";
+    }
+
+    function loadVoices() {
+      if (!("speechSynthesis" in window)) return;
+      voices = speechSynthesis.getVoices();
+      const select = document.getElementById("voiceSelect");
+      const selected = select.value;
+      const enVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith("en"));
+      select.innerHTML = enVoices.map((v) => `<option value="${voices.indexOf(v)}">${v.name} · ${v.lang}</option>`).join("");
+      if (selected) select.value = selected;
+    }
+
+    if ("speechSynthesis" in window) {
+      speechSynthesis.onvoiceschanged = loadVoices;
+    }
+
+    function speakCurrent() {
+      speakText(currentSentencePair()[0]);
+    }
+
+    function speakText(text) {
+      if (!("speechSynthesis" in window)) {
+        alert("当前浏览器不支持标准发音播放。建议使用 Chrome 或 Edge。");
+        return;
+      }
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = "en-US";
+      u.rate = 0.82;
+      u.pitch = 1;
+      const idx = Number(document.getElementById("voiceSelect").value);
+      if (!Number.isNaN(idx) && voices[idx]) u.voice = voices[idx];
+      speechSynthesis.speak(u);
+    }
+
+    async function startRecording() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioChunks = [];
+        mediaRecorder = new MediaRecorder(stream);
+        recordingStart = Date.now();
+
+        mediaRecorder.ondataavailable = e => audioChunks.push(e.data);
+        mediaRecorder.onstop = () => {
+          lastRecordingDuration = (Date.now() - recordingStart) / 1000;
+          const blob = new Blob(audioChunks, { type: "audio/webm" });
+          const audioURL = URL.createObjectURL(blob);
+          const audio = document.getElementById("audioPlayback");
+          audio.src = audioURL;
+          audio.classList.remove("hidden");
+          stream.getTracks().forEach(t => t.stop());
+          document.getElementById("feedbackBox").innerText = `录音完成。录音时长：${lastRecordingDuration.toFixed(1)} 秒。你可以先回放，再点击“语音识别评分”。`;
+        };
+        mediaRecorder.start();
+        document.getElementById("feedbackBox").innerText = "正在录音，请朗读当前句子。";
+      } catch (err) {
+        alert("无法打开麦克风。请确认浏览器麦克风权限已开启，并尽量使用 HTTPS 链接或 localhost。");
+      }
+    }
+
+    function stopRecording() {
+      if (mediaRecorder && mediaRecorder.state !== "inactive") {
+        mediaRecorder.stop();
+      }
+    }
+
+    function startRecognition() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        document.getElementById("feedbackBox").innerText =
+          "当前浏览器不支持语音识别评分。建议使用电脑或安卓手机 Chrome 浏览器。iPhone Safari 通常不稳定。";
+        return;
+      }
+
+      const rec = new SpeechRecognition();
+      rec.lang = "en-US";
+      rec.interimResults = false;
+      rec.maxAlternatives = 1;
+
+      document.getElementById("feedbackBox").innerText = "请开始朗读当前句子……";
+      const started = Date.now();
+
+      rec.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        if (!lastRecordingDuration) {
+          lastRecordingDuration = (Date.now() - started) / 1000;
+        }
+        const target = currentSentencePair()[0];
+        const acc = similarityScore(target, transcript);
+        const comp = completenessScore(target, transcript);
+        const flu = fluencyScore(target);
+        const missing = [...new Set(missingWords(target, transcript))].slice(0, 8);
+
+        document.getElementById("accuracyScore").innerText = acc;
+        document.getElementById("completeScore").innerText = comp;
+        document.getElementById("fluencyScore").innerText = flu;
+
+        let advice = "";
+        if (acc >= 90 && comp >= 90) advice = "很好，客户基本能轻松听懂。下一步练自然语速和自信度。";
+        else if (acc >= 75) advice = "可以沟通，但还需要提高单词清晰度。建议重复跟读 5 遍。";
+        else advice = "当前句子还不够稳定。建议放慢速度，先逐词读清楚，再练连贯表达。";
+
+        document.getElementById("feedbackBox").innerText =
+          `识别结果：\n${transcript}\n\n训练建议：\n${advice}\n\n重点检查单词：\n${missing.length ? missing.join(", ") : "暂无明显漏词"}\n\n说明：免费版评分基于识别结果估算，不代表专业音素评分。`;
+      };
+
+      rec.onerror = (event) => {
+        document.getElementById("feedbackBox").innerText =
+          "语音识别失败：" + event.error + "。请换 Chrome 浏览器，或确认网络和麦克风权限。";
+      };
+
+      rec.start();
+    }
+
+    function markLessonDone() {
+      const done = new Set(JSON.parse(localStorage.getItem("pt_doneLessons") || "[]"));
+      done.add(currentLesson().day);
+      localStorage.setItem("pt_doneLessons", JSON.stringify([...done]));
+      document.getElementById("feedbackBox").innerText = "今天课程已完成。建议明天继续下一课。";
+      renderHome();
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
